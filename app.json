@@ -2,6 +2,7 @@
   "expo": {
     "name": "oauth2app",
     "slug": "oauth2app",
+    "scheme": "oauth2app", 
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
