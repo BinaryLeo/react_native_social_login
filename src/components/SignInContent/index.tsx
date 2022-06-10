@@ -20,7 +20,7 @@ export function SignInContent() {
         </Text>
 
         <Text style={styles.subtitle}>
-        Log in with your Google account to {'\n'}
+        Sign in with your Google account to {'\n'}
         be faster and let's take off.
         </Text>
 
