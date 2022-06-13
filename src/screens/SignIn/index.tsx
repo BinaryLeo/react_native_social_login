@@ -17,14 +17,15 @@ type AuthResponse = {
 export function SignIn() {
   const navigation = useNavigation();
   const credentialsConfig = {
-    CLIENT_ID: process.env.CLIENT_ID,
-    REDIRECT_URI: process.env.REDIRECT_URI,
+    CLIENT_ID: process.env.CLIENT_ID, //Sensitive information .env file - data from GCP Credentials
+    REDIRECT_URI: process.env.REDIRECT_URI,// https://auth.expo.io/@your-expo-username/your-project-slug
     RESPONSE_TYPE: "token",
-    SCOPE: encodeURI("profile email"),
+    SCOPE: encodeURI("profile email"), // %20 is space
   };
   async function handleSignIn() {
     const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${credentialsConfig.CLIENT_ID}&redirect_uri=${credentialsConfig.REDIRECT_URI}&response_type=${credentialsConfig.RESPONSE_TYPE}&scope=${credentialsConfig.SCOPE}`;
-    const { type, params } = (await AuthSession.startAsync({
+    //https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow for more info
+    const { type, params } = (await AuthSession.startAsync({ // start the appication session flow
       authUrl,
     })) as AuthResponse;
     if (type === "success") {

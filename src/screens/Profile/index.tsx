@@ -32,6 +32,7 @@ export function Profile() {
   }
 async function loadProfile() {
   const response = await fetch(`https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${token}`);
+ // the same url from Step 3  - Readme:  Request URL https://www.googleapis.com/oauth2/v2/userinfo
   const userInfo = await response.json();
   setProfile(userInfo);
 }
